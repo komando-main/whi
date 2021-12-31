@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="custom">
+	
+	<insert id="setin" parameterType="com.whi.vo.customVO">
+			insert into custom (
+									busi_num
+									, custom
+									, sHort
+									, ceo
+									, charge_person
+									, busi_condition
+									, time
+									, post_num
+									, addr1
+									, addr2
+									, tel
+									, fax
+									, homepage
+									, co_yn
+									, foreign_yn
+									, tax_yn
+									, country_eng
+									, country_kor
+									, special_relation
+									, trade_stop
+									, contract_perod_s
+									, contract_period_e
+									, regi_info_man
+									, regi_info_date
+									, modi_info_man
+									, modi_info_date
+								)
+					
+			values(#{busi_num}, #{custom}, #{sHort, jdbcType=VARCHAR}, #{ceo, jdbcType=VARCHAR}, #{charge_person, jdbcType=VARCHAR}, #{busi_condition, jdbcType=VARCHAR}
+					, #{time, jdbcType=VARCHAR}, #{post_num, jdbcType=VARCHAR}, #{addr1, jdbcType=VARCHAR}, #{addr2, jdbcType=VARCHAR}, #{tel, jdbcType=VARCHAR}, #{fax, jdbcType=VARCHAR}
+					, #{homepage, jdbcType=VARCHAR}, #{co_yn, jdbcType=VARCHAR}, #{foreign_yn, jdbcType=VARCHAR}, #{tax_yn, jdbcType=VARCHAR}, #{country_eng, jdbcType=VARCHAR}
+					, #{country_kor, jdbcType=VARCHAR}, #{special_relation, jdbcType=VARCHAR}, #{trade_stop, jdbcType=VARCHAR}, #{contract_perod_s, jdbcType=VARCHAR}
+					, #{contract_period_e, jdbcType=VARCHAR}, #{regi_info_man, jdbcType=VARCHAR}, #{regi_info_date, jdbcType=VARCHAR}, #{modi_info_man, jdbcType=VARCHAR}
+					, #{modi_info_date, jdbcType=VARCHAR})
+	</insert>
+
+	<update id="setadd" parameterType="com.whi.vo.customVO">
+		update custom
+		
+		set
+		
+		<if test="busi_num != null">busi_num=#{busi_num},</if>
+		custom=#{custom}
+		<if test="sHort != null">, sHort=#{sHort}</if>
+		<if test="ceo != null">, ceo=#{ceo}</if>
+		<if test="charge_person != null">, charge_person=#{charge_person}</if> 
+		<if test="busi_condition != null">, busi_condition=#{busi_condition}</if>
+		<if test="time != null">, time=#{time}</if>
+		<if test="post_num != null">, post_num=#{post_num}</if>
+		<if test="addr1 != null">, addr1=#{addr1}</if>
+		<if test="addr2 != null">, addr2=#{addr2}</if>
+		<if test="tel != null">, tel=#{tel}</if>
+		<if test="fax != null">, fax=#{fax}</if>
+		<if test="homepage != null">, homepage=#{homepage}</if>
+		<if test="co_yn != null">, co_yn=#{co_yn}</if>
+		<if test="foreign_yn != null">, foreign_yn=#{foreign_yn}</if>
+		<if test="tax_yn != null">, tax_yn=#{tax_yn}</if>
+		<if test="country_eng != null">, country_eng=#{country_eng}</if>
+		<if test="country_kor != null">, country_kor=#{country_kor}</if>
+		<if test="special_relation != null">, special_relation=#{special_relation}</if>
+		<if test="trade_stop != null">, trade_stop=#{trade_stop}</if>
+		<if test="contract_perod_s != null">, contract_perod_s=#{contract_perod_s}</if>
+		<if test="contract_period_e != null">, contract_period_e=#{contract_period_e}</if>
+		<if test="regi_info_man != null">, regi_info_man=#{regi_info_man}</if>
+		<if test="regi_info_date != null">, regi_info_date=#{regi_info_date}</if>
+		<if test="modi_info_man != null">, modi_info_man=#{modi_info_man}</if>
+		<if test="modi_info_date != null">, modi_info_date=#{modi_info_date}</if>
+		
+		where busi_num=#{busi_num}
+
+	</update>
+	
+	<select id="getall" resultType="com.whi.vo.customVO" parameterType="com.whi.vo.customVO">
+		select *
+		from custom
+		where busi_num LIKE '%'||#{busi_num}||'%' or custon LIKE '%'||#{custon}||'%'
+	</select>
+	
+	<delete id="del" parameterType="String">
+		delete from custom
+		where busi_num=#{busi_num}
+	</delete>
+	
+</mapper>
