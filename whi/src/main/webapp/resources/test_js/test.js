@@ -1,4 +1,5 @@
 function set(){
+//클래스 네임명으로 불러 오기가 안먹힌다 이유를 모르것내.......... 배류 값이 언디파인드 뜨는대.... ㅊ니구 찬스 좀써 봐야 할듯 하다..
 	console.log('set() function 작동');
 //	let input_list = document.getElementsByClassName('input').value;
 	let input_list1 = document.getElementsByClassName('input1')[1].value;
